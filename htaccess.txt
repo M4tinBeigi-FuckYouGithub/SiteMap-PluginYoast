@@ -1,0 +1,22 @@
+AddDefaultCharset UTF-8
+Options +FollowSymLinks
+RewriteEngine On
+
+
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
+
+#RewriteRule ^(.*)/(.*)-([0-9]+).xml sitemap.php?lang=$1&n=$3&page=$2 [NC,L]
+RewriteRule sitemap_index.xml index.php [NC,L]
+
+#RewriteRule ^(.*)/sitemap/(.*)-sitemap-([0-9]+).xml index.php?type=$2&n=$3&lng=$1 [NC,L]
+RewriteRule ^(.*)-sitemap-([0-9]+).xml index.php?type=$2&n=$3&lng=$1 [NC,L]
+#fa/sitemap/product-sitemap-1.xml
+RewriteRule ^(.*)-sitemap.xml index.php?type=$1 [NC,L]
+
+#RewriteRule sitemap.xml sitemap_index.xml [L,R=301]
+
+#RewriteRule ^(.*)/sitemap/sitemap_index.xml sitemap/index.php?lng=$1 [NC,L]
+#RewriteRule ^(.*)/sitemap/(.*)-sitemap-([0-9]+).xml sitemap/index.php?type=$2&n=$3&lng=$1 [NC,L]
